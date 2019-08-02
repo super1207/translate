@@ -1,0 +1,2 @@
+这是pymain.dll的代码，用于python与dll插件之间的通讯
+VS2017x86

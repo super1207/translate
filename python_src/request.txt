@@ -1,0 +1,8 @@
+requests
+js2py
+baidu-aip
+Pillow
+playsound
+requests_toolbelt
+pywin32
+PyInstaller

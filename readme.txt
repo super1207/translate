@@ -4,6 +4,7 @@
 `python_src`:这是`截图翻译工具`的主体
 `pymain_src`:这是用于`截图翻译工具`与外部其它语言编写的dll通讯
 `pyapp_src`:这是用C++编写其插件的一个DEMO
+`pyruncpp_src`:这是用C++编写其插件的一个DEMO,展示运行CPP功能
 编译与构建说明见各个目录下的`readme.txt`
 支持平台:windows7及其以上
 开源协议:MIT

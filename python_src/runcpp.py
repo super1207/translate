@@ -12,10 +12,10 @@ class runcpp:
         else:
             data1 = {'code': data,
                      'language': args[0], 'fileext': args[1]}
-        headers = {'content-type': 'application/json',
+        headers = {
                    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
         r = requests.post(
-            'https://m.runoob.com/api/compile.php', data=data1, headers=headers)
+            'https://tool.runoob.com/compile.php', data=data1, headers=headers)
         if len(r.text) > 3000:
             return "response too long,check your code!!"
         error = ''

@@ -337,7 +337,7 @@ class GUI:
             OCRLANGUAGE = s
             f.destroy()
 
-        if self.comboxlist1.get() == "使用OCRMAKER(无限制)":
+        if self.comboxlist1.get() == "使用OCRMAKER":
             tk.messagebox.showinfo(title="亲~", message='''OCRMAKER必须指定要识别的图片的语言,
             若你的图片中包含多种语言，请使用百度OCR''')
             f = tk.Toplevel()

@@ -28,10 +28,8 @@ from systray import SysTrayIcon
 
 from formatcpp import formatcpp
 from pasteUbuntu import pasteUbuntu
-from runcpp import runcpp
 from Config import Config
 from google import google
-from baidu import baidu
 
 
 
@@ -366,27 +364,12 @@ class GUI:
             self.comboxlist['state'] = 'readonly'
             self.comboxlist["values"] = ("C/C++代码美化",)
             self.comboxlist.current(0)
-        elif self.comboxlist0.get() == "C/C++代码运行":
-            self.translateBtn['text'] = "运行"
-            self.comboxlist['state'] = 'readonly'
-            self.comboxlist["values"] = ("C/C++代码运行",)
-            self.comboxlist.current(0)
         elif self.comboxlist0.get() == "使用谷歌翻译":
             self.translateBtn['text'] = "翻译"
             self.comboxlist['state'] = 'readonly'
             self.comboxlist["values"] = ("翻译为中文(简体)", "翻译为中文(繁体)",
                                          "翻译为英文", "翻译为日文", "翻译为韩文")
             self.comboxlist.current(0)
-        elif self.comboxlist0.get() == "使用百度翻译":
-            self.translateBtn['text'] = "翻译"
-            self.comboxlist['state'] = 'readonly'
-            self.comboxlist["values"] = ("翻译为中文(简体)", "翻译为中文(繁体)",
-                                         "翻译为英文", "翻译为日文", "翻译为韩文")
-            self.comboxlist.current(0)
-        elif self.comboxlist0.get() == "识别数学公式":
-            self.translateBtn['text'] = "图片"
-            self.comboxlist['state'] = 'readonly'
-            self.comboxlist["values"] = ("识别数学公式",)
         elif self.comboxlist0.get() == "发布临时文字":
             self.translateBtn['text'] = "生成"
             self.comboxlist['state'] = 'readonly'
@@ -450,26 +433,6 @@ class GUI:
         response = requests.post(url, headers=headers, data=m)
         return response.json()['ParsedResults'][0]['ParsedText']
 
-    def mathOCR(self, image):
-        '''mathpix的接口，用于识别数学公式
-        '''
-        url = "https://api.mathpix.com/v3/latex"
-        headers = {
-            "Content-Type": "application/json",
-            "Expect": "100-continue",
-            "app_id":"mathpix_chrome",
-            "app_key":"85948264c5d443573286752fbe8df361"
-        }
-        output = BytesIO()
-        image.save(output, "PNG")
-        image = output.getvalue()
-        output.close()
-        base64_data = base64.b64encode(image)
-        s = base64_data.decode()
-        data = '{	"formats": ["latex_styled", "text"],	"metadata": {		"count": 1,		"platform": "windows 10",		"skip_recrop": true,		"user_id": "123ab2a82ea246a0b011a37183c87bab",		"version": "snip.windows@00.00.0083"	},	"ocr": ["text", "math"],	"src": "data:image/jpeg;base64,'+s+'"}'
-        ret = requests.post(url,data=data,headers = headers, verify=False)
-        r = ret.json()["text"]
-        return r[2:len(r)-2]
 
     def OCRAPI(self, Image):
         '''用于调用OCR
@@ -477,10 +440,8 @@ class GUI:
         self.logger.debug("OCRAPI call")
         if self.comboxlist1.current() == 0:
             return self.baiduOCR(Image)
-        elif self.comboxlist1.current() == 1:
-            return self.makeOCR(Image, OCRLANGUAGE)
         else:
-            return self.mathOCR(Image)
+            return self.makeOCR(Image, OCRLANGUAGE)
 
     def on_closing(self):
         self.logger.debug("on_closing call")
@@ -546,8 +507,8 @@ class GUI:
                 row=0, column=0, sticky=tk.W)
 
             self.comboxlist0 = ttk.Combobox(self.window)
-            self.comboxlist0["values"] = ("使用谷歌翻译", "使用百度翻译", "C/C++代码美化",
-                                          "C/C++代码运行","发布临时文字")
+            self.comboxlist0["values"] = ("使用谷歌翻译", "C/C++代码美化",
+                                          "发布临时文字")
             self.comboxlist0.bind("<<ComboboxSelected>>", self.comboxlist0_msg)
 
             self.comboxlist0["state"] = "readonly"
@@ -584,7 +545,7 @@ class GUI:
 
             self.OCRLANGUAGE = 'eng'
             self.comboxlist1 = ttk.Combobox(self.window)
-            self.comboxlist1["values"] = ("使用百度OCR", "使用OCRMAKER","使用mathOCR")
+            self.comboxlist1["values"] = ("使用百度OCR", "使用OCRMAKER")
             self.comboxlist1.bind("<<ComboboxSelected>>", self.comboxlist1_OCR)
             self.comboxlist1["state"] = "readonly"
             self.comboxlist1.current(0)

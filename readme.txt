@@ -1,11 +1,12 @@
-`��ͼ���빤��`���ܣ�
-`��ͼ���빤��`������ȡͼƬ�е����֣���ʽ��Ȼ���䷭�룬֧���������Ա�д�Ĳ����չ��
-Ŀ¼���ܣ�
-`python_src`:����`��ͼ���빤��`������
-`pymain_src`:��������`��ͼ���빤��`���ⲿ�������Ա�д��dllͨѶ
-`pyapp_src`:������C++��д������һ��DEMO
-`pyruncpp_src`:������C++��д������һ��DEMO,չʾ����CPP����
-�����빹��˵��������Ŀ¼�µ�`readme.txt`
-֧��ƽ̨:windows7��������
-��ԴЭ��:MIT
+`截图翻译工具`介绍：
+`截图翻译工具`可以提取图片中的文字，公式，然后将其翻译，支持其它语言编写的插件扩展。
+目录介绍：
+`python_src`:这是`截图翻译工具`的主体
+`pymain_src`:这是用于`截图翻译工具`与外部其它语言编写的dll通讯
+`pyapp_src`:这是用C++编写其插件的一个DEMO
+`pyruncpp_src`:这是用C++编写其插件的一个DEMO,展示运行CPP功能
+编译与构建说明见各个目录下的`readme.txt`
+支持平台:windows7及其以上
+开源协议:MIT
+PS:突然发现网易有道词典似乎更好用...此项目弃坑
 

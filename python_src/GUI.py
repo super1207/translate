@@ -439,9 +439,9 @@ class GUI:
         '''
         self.logger.debug("OCRAPI call")
         if self.comboxlist1.current() == 0:
-            return self.baiduOCR(Image)
+            return self.baiduOCR(Image).replace("\n","")
         else:
-            return self.makeOCR(Image, OCRLANGUAGE)
+            return self.makeOCR(Image, OCRLANGUAGE).replace("\n","")
 
     def on_closing(self):
         self.logger.debug("on_closing call")

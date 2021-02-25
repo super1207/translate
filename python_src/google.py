@@ -40,7 +40,7 @@ class google:
         tk = evaljs.TL(word)
         return tk
     
- """
+"""
 #include <stdio.h>
 #include <string.h>
 #include <vector>
@@ -101,4 +101,4 @@ int main()
     double out = TL(a);
     printf("%lf\n",out);  
 }
- """
+"""

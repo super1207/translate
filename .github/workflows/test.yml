@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  test:
+    name: deploy to staging
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x86' # optional x64 or x86. Defaults to x64 if not specified
+    - name: get resp
+      run: |
+        cd python_src
+        ./点我编译.bat
+    - name: upload file
+      uses: actions/upload-artifact@v2
+      with:
+        name: GUI.exe
+        path: python_src/dist/GUI.exe

@@ -299,6 +299,8 @@ class GUI:
                             self.outText.delete("1.0", 'end')
                             self.outText.insert(tkinter.END, text)
                 else:
+                    if self.picButton.get():
+                        continue
                     try:
                         value = self.window.clipboard_get()
                     except:
@@ -495,6 +497,10 @@ class GUI:
             self.menubar.add_cascade(label='设置', menu=self.setmenu)
             self.setmenu.add_command(label='查看APP_ID', command=self.getAppId)
             self.setmenu.add_command(label='生成配置文件', command=self.useConfig)
+            self.picButton = tk.IntVar()
+            self.picButton.set(0)
+            self.setmenu.add_checkbutton(label='只监听图片', variable=self.picButton)
+            
 
             self.helpmenu = tk.Menu(self.menubar, tearoff=0)
             self.menubar.add_cascade(label='帮助', menu=self.helpmenu)

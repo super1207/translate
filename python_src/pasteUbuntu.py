@@ -31,4 +31,4 @@ class pasteUbuntu:
         }
         r = requests.post('http://paste.ubuntu.com/', cookies=cookies,
                         headers=header, data=data, verify=False, allow_redirects=False)
-        return "https://paste.ubuntu.com/" + r.headers['Location']
+        return "https://paste.ubuntu.com" + r.headers['Location']

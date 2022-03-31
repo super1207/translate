@@ -23,6 +23,7 @@ from PIL import Image, ImageGrab
 from requests_toolbelt import MultipartEncoder
 from ctypes import create_string_buffer,string_at,WinDLL
 import _thread
+import pkg_resources
 from systray import SysTrayIcon
 
 

@@ -30,6 +30,7 @@ from formatcpp import formatcpp
 from pasteUbuntu import pasteUbuntu
 from Config import Config
 from google import google
+from baidu import baidu
 
 
 
@@ -513,7 +514,7 @@ class GUI:
                 row=0, column=0, sticky=tk.W)
 
             self.comboxlist0 = ttk.Combobox(self.window)
-            self.comboxlist0["values"] = ("使用谷歌翻译", "C/C++代码美化",
+            self.comboxlist0["values"] = ("使用百度翻译","使用谷歌翻译", "C/C++代码美化",
                                           "发布临时文字")
             self.comboxlist0.bind("<<ComboboxSelected>>", self.comboxlist0_msg)
 

@@ -514,8 +514,7 @@ class GUI:
                 row=0, column=0, sticky=tk.W)
 
             self.comboxlist0 = ttk.Combobox(self.window)
-            self.comboxlist0["values"] = ("使用百度翻译","使用谷歌翻译", "C/C++代码美化",
-                                          "发布临时文字")
+            self.comboxlist0["values"] = ("使用百度翻译","使用谷歌翻译", "C/C++代码美化")
             self.comboxlist0.bind("<<ComboboxSelected>>", self.comboxlist0_msg)
 
             self.comboxlist0["state"] = "readonly"
@@ -552,7 +551,7 @@ class GUI:
 
             self.OCRLANGUAGE = 'eng'
             self.comboxlist1 = ttk.Combobox(self.window)
-            self.comboxlist1["values"] = ("使用百度OCR", "使用OCRMAKER")
+            self.comboxlist1["values"] = ("使用百度OCR")
             self.comboxlist1.bind("<<ComboboxSelected>>", self.comboxlist1_OCR)
             self.comboxlist1["state"] = "readonly"
             self.comboxlist1.current(0)

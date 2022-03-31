@@ -374,6 +374,12 @@ class GUI:
             self.comboxlist["values"] = ("翻译为中文(简体)", "翻译为中文(繁体)",
                                          "翻译为英文", "翻译为日文", "翻译为韩文")
             self.comboxlist.current(0)
+        elif self.comboxlist0.get() == "使用百度翻译":
+            self.translateBtn['text'] = "翻译"
+            self.comboxlist['state'] = 'readonly'
+            self.comboxlist["values"] = ("翻译为中文(简体)", "翻译为中文(繁体)",
+                                         "翻译为英文", "翻译为日文", "翻译为韩文")
+            self.comboxlist.current(0)
         elif self.comboxlist0.get() == "发布临时文字":
             self.translateBtn['text'] = "生成"
             self.comboxlist['state'] = 'readonly'

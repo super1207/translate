@@ -1,6 +1,6 @@
 requests
 js2py
-baidu-aip
+baidu-aip==2.2.18.0
 Pillow
 playsound
 requests_toolbelt
